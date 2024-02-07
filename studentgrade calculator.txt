@@ -1,0 +1,63 @@
+package student;
+
+import java.util.Scanner;
+public class Main {
+	public static void main(String[]args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("please enter your name:");
+		String name=sc.nextLine();
+		System.out.println("\n welcome to student grade calculator"+name);
+		int numsub=0;
+		System.out.println("please Enter the total number of your subject:");
+		numsub=sc.nextInt();
+		int[ ]mark=new int[numsub];
+		for(int m=0;m<mark.length;m++)
+		{
+			System.out.println("\nEnter mark for subject="+(m+1)+":");
+			mark[m]=sc.nextInt();
+			while(mark[m]<0||mark[m]>100)
+			{
+				System.out.println("\nEnter the correct mark for subject"+(m+1)+":");
+				mark[m]=sc.nextInt();
+			}
+		}
+		int totMark=0;
+		double aveMark=0.0;
+		String grade=" ";
+		for(int m=0;m<mark.length;m++)
+		{
+			totMark +=mark[m];
+		}
+		aveMark=totMark/numsub;
+		if(aveMark>=80) {
+			grade="A";
+		}
+		else if(aveMark>=70&&aveMark<80)
+		{
+			grade="B";
+		}
+		else if(aveMark>=60&&aveMark<70)
+		{
+			grade ="c";
+		}
+		else if(aveMark>=50&&aveMark<60)
+		{
+			grade="D";
+		}
+		else if(aveMark>=40&&aveMark<50)
+		{
+			grade="E";
+		}
+		else if(aveMark>=30&&aveMark<40)
+	    {
+		grade="F";
+		}
+		else
+		{
+			grade="FF";
+		}
+		System.out.printf("\nStudent name:%s\n\nTotal subjects: %d\nTotal Mark: %d\nAverage Mark: %2f\nGrade: %s",name,numsub,totMark,aveMark,grade);
+		
+	}
+
+}
